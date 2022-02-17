@@ -1,0 +1,167 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local helikoptergui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local Title = Instance.new("TextLabel")
+local playsong = Instance.new("TextButton")
+local sniffhub = Instance.new("TextButton")
+
+--Properties:
+
+helikoptergui.Name = "helikoptergui"
+helikoptergui.Parent = game.Workspace
+
+Frame.Parent = helikoptergui
+Frame.BackgroundColor3 = Color3.fromRGB(203, 88, 173)
+Frame.Position = UDim2.new(0, 0, 0.626142263, 0)
+Frame.Size = UDim2.new(0, 293, 0, 287)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(248, 144, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Frame
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(140, 18, 128)
+Title.BackgroundTransparency = 0.300
+Title.Size = UDim2.new(0, 293, 0, 50)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Helikopter GUI | Credits to DZIDZIO0 and gjgofgoip"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+playsong.Name = "playsong"
+playsong.Parent = Frame
+playsong.BackgroundColor3 = Color3.fromRGB(255, 151, 254)
+playsong.Position = UDim2.new(0, 0, 0.174216032, 0)
+playsong.Size = UDim2.new(0, 107, 0, 50)
+playsong.Font = Enum.Font.SourceSans
+playsong.Text = "play helikopter song on server (not guaranteed to work)"
+playsong.TextColor3 = Color3.fromRGB(0, 0, 0)
+playsong.TextScaled = true
+playsong.TextSize = 14.000
+playsong.TextWrapped = true
+playsong.MouseButton1Click:Connect(function()
+	local gameDescendants = game:GetDescendants()
+
+
+	for _,descendant in pairs(gameDescendants) do
+		if descendant:IsA("RemoteEvent") then
+			local dscname = string.lower(descendant.Name)
+			if string.find(dscname,"audio") or string.find(dscname, "song") or string.find(dscname,"music") or string.find(dscname,"play") then
+				descendant:FireServer(8077033318,8077033318,8077033318,8077033318,8077033318)
+				local yessound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+				yessound.SoundId = "rbxassetid://5318869644"
+				yessound:Play()
+				wait(1)
+				yessound:Destroy()
+				print("meatballs detected on remoteevent")
+			else
+				local nosound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+				nosound.SoundId = "rbxassetid://4621681412"
+				nosound:Play()
+				wait(1)
+				nosound:Destroy()
+			end
+		end
+		if descendant:IsA("RemoteFunction") then
+			local dscname = string.lower(descendant.Name)
+			if string.find(dscname,"audio") or string.find(dscname, "song") or string.find(dscname,"music") or string.find(dscname,"play") then
+				descendant:InvokeServer(8077033318,8077033318,8077033318,8077033318,8077033318)
+				local yessound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+				yessound.SoundId = "rbxassetid://5318869644"
+				yessound:Play()
+				wait(1)
+				yessound:Destroy()
+				print("meatballs detected on remotefunction")
+			else
+				local nosound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+				nosound.SoundId = "rbxassetid://4621681412"
+				nosound:Play()
+				wait(1)
+				nosound:Destroy()
+			end
+		end
+	end
+
+end)
+
+sniffhub.Name = "sniffhub"
+sniffhub.Parent = Frame
+sniffhub.BackgroundColor3 = Color3.fromRGB(255, 151, 254)
+sniffhub.Position = UDim2.new(0.365187705, 0, 0.174216032, 0)
+sniffhub.Size = UDim2.new(0, 107, 0, 50)
+sniffhub.Font = Enum.Font.SourceSans
+sniffhub.Text = "Open Sniff Hub"
+sniffhub.TextColor3 = Color3.fromRGB(0, 0, 0)
+sniffhub.TextScaled = true
+sniffhub.TextSize = 14.000
+sniffhub.TextWrapped = true
+sniffhub.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/yoyeet961/sniff-hub/main/thescript'),true))()
+end)
+
+-- Scripts:
+
+local function AXSQ_fake_script() -- playsong.LocalScript 
+	local script = Instance.new('LocalScript', playsong)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local gameDescendants = game:GetDescendants()
+	
+	
+		for _,descendant in pairs(gameDescendants) do
+			if descendant:IsA("RemoteEvent") then
+				local dscname = string.lower(descendant.Name)
+				if string.find(dscname,"audio") or string.find(dscname, "song") or string.find(dscname,"music") or string.find(dscname,"play") then
+					descendant:FireServer(8077033318,8077033318,8077033318,8077033318,8077033318)
+					local yessound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+					yessound.SoundId = "rbxassetid://5318869644"
+					yessound:Play()
+					wait(1)
+					yessound:Destroy()
+					print("meatballs detected on remoteevent")
+				else
+					local nosound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+					nosound.SoundId = "rbxassetid://4621681412"
+					nosound:Play()
+					wait(1)
+					nosound:Destroy()
+				end
+			end
+			if descendant:IsA("RemoteFunction") then
+				local dscname = string.lower(descendant.Name)
+				if string.find(dscname,"audio") or string.find(dscname, "song") or string.find(dscname,"music") or string.find(dscname,"play") then
+					descendant:InvokeServer(8077033318,8077033318,8077033318,8077033318,8077033318)
+					local yessound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+					yessound.SoundId = "rbxassetid://5318869644"
+					yessound:Play()
+					wait(1)
+					yessound:Destroy()
+					print("meatballs detected on remotefunction")
+				else
+					local nosound = Instance.new("Sound",game.Players.LocalPlayer.Character.Head)
+					nosound.SoundId = "rbxassetid://4621681412"
+					nosound:Play()
+					wait(1)
+					nosound:Destroy()
+				end
+			end
+		end
+	
+	end)
+end
+coroutine.wrap(AXSQ_fake_script)()
+local function ZYBSOB_fake_script() -- sniffhub.LocalScript 
+	local script = Instance.new('LocalScript', sniffhub)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/yoyeet961/sniff-hub/main/thescript'),true))()
+	end)
+end
+coroutine.wrap(ZYBSOB_fake_script)()
