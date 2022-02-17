@@ -13,7 +13,7 @@ local sniffhub = Instance.new("TextButton")
 --Properties:
 
 helikoptergui.Name = "helikoptergui"
-helikoptergui.Parent = game.Workspace
+helikoptergui.Parent = game.Players.LocalPlayer.PlayerGui
 
 Frame.Parent = helikoptergui
 Frame.BackgroundColor3 = Color3.fromRGB(203, 88, 173)
